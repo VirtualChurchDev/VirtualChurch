@@ -1,0 +1,36 @@
+{% extends '../core.html' %}
+
+{% block content %}
+{% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        <strong>Radās kļūda reģistrācijas procesā.</strong> Lūdzu pārliecinaties, vai visa informācija ir aizpildīta un atbilst nosacījumiem.
+    </div>
+{% endif %}
+<div class="display-3">Reģistrēties</div>
+<form action="{% url 'account:register_user' %}" method="post" class="pt-5">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Lietotājvārds</label>
+        {{form.username}}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">E-pasts</label>
+        {{form.email}}
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Parole</label>
+        {{form.password1}}
+    </div>
+    <ul>
+        <li>Parole nedrīkst būt līdzīga personīgajai informācijai.</li>
+        <li>Parolē jābūt vismaz 8 rakstzīmēm.</li>
+        <li>Parole nevar būt bieži izmantoja parole. Piemēram: 1234.</li>
+        <li>Parole nevar sastāvēt tikai no cipariem.</li>
+      </ul>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Parole atkārtoti</label>
+        {{form.password2}}
+    </div>
+    <button type="submit" class="btn btn-primary">Pieslēgties</button>
+</form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends '../core.html' %}
+
+{% block content %}
+  <div class="fs-6 text-center">
+    Pieslēdzies kā {{request.user.username}}
+  </div>  
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Grēksūdzes istaba nr. {{room_name}}</label>
+    <textarea class="form-control" id="chat-text" cols="80" rows="30" readonly>{{text}}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"></label>
+    <input name="message" class="form-control" id="input" type="text" size="80" placeholder="Type something...">
+  </div>
+  <button onclick="sendMessage()" id="submit" class="btn btn-success">Send</button>
+  {{ request.user.id|json_script:"user-id" }}
+  {{ request.user.username|json_script:"user-name" }}
+  {{ room_name|json_script:"room-name" }}
+  <script>
+    function getCookie(cookieName) {
+      let cookie = {};
+      document.cookie.split(';').forEach(function(el) {
+        let [key,value] = el.split('=');
+        cookie[key.trim()] = value;
+      })
+      return cookie[cookieName];
+    }
+    
+    function sendMessage(){
+      const user_id = JSON.parse(document.getElementById('user-id').textContent);
+      const user_name = JSON.parse(document.getElementById('user-name').textContent);
+      const room_name = JSON.parse(document.getElementById('room-name').textContent);
+      const data = {
+        'user_id': user_id,
+        'message': document.getElementById('input').value,
+        'room_name': room_name,
+      };
+      const url = "{% url 'chat:send' %}"
+      const csrftoken = getCookie('csrftoken')
+  
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify(data),
+      })
+        .then(function(){
+          document.getElementById("chat-text").value += '\n' + user_name + ': ' + document.getElementById('input').value;
+          document.getElementById('input').value = '';
+        })
+    }
+  </script>
+{% endblock %}
+

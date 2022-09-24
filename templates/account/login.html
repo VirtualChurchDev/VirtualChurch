@@ -1,0 +1,17 @@
+{% extends '../core.html' %}
+
+{% block content %}
+<div class="display-3">Pieslēgties</div>
+<form action="" method="post" class="pt-5">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Lietotājvārds</label>
+      <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Parole</label>
+      <input type="password" class="form-control" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Pieslēgties</button>
+</form>
+{% endblock %}

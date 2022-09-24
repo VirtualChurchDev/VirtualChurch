@@ -1,0 +1,20 @@
+{% extends '../core.html' %}
+
+{% block content %}
+<div class="display-3">Grēksūdze</div>
+<div class="lead">
+    apraksts
+</div>
+<div>
+    <h1>Tava grēksūdzes izstaba:</h1>
+    {% if request.user.is_authenticated %}
+        {% if room %}
+            <a href="{% url 'chat:join' %}" type="button" class="btn btn-primary">Pievienoties</a>
+        {% else %}
+            <a href="{% url 'chat:payment' %}" type="button" class="btn btn-success">Izveidot</a>
+        {% endif%}
+    {% else %}
+        <p class="fs-5 fw-light"><small>Pieslēdzies, lai apskatītu vai izveidotu istabu!</small></p>
+    {% endif %}
+</div>
+{% endblock %}

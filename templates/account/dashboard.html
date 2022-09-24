@@ -1,0 +1,24 @@
+{% extends '../core.html' %}
+
+{% block content %}
+<div class="display-3">Konta informācija</div>
+<div class="pt-5 pb-5">
+    <table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Lietotājvārds</th>
+            <td>{{request.user.username}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Ē-pasts</th>
+            <td>{{request.user.email}}</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+{% if is_headuser %}
+    <div class="text-center">
+        <a href="{% url 'account:headpanel' %}" type="button" class="btn btn-info">Mācītāja panelis</a>
+    </div>
+{% endif %}
+{% endblock %}

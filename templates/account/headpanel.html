@@ -1,0 +1,25 @@
+{% extends '../core.html' %}
+
+{% block content %}
+<div class="display-3">Grēksūdzes istabas</div>
+<div class="pt-5 pb-5 text-center">
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Lietotājvārds</th>
+              <th scope="col">Pievienoties</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for room in rooms %}
+                <tr>
+                    <th scope="row" class="">{{room.slug}}</th>
+                    <td>{{room.name}}</td>
+                    <td><a href="{% url 'chat:index' %}{{room.slug}}" type="button" class="btn btn-success">Pievienoties</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

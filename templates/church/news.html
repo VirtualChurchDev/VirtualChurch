@@ -1,0 +1,21 @@
+{% extends '../core.html' %}
+
+{% block content %}
+<div class="display-3">Jaunumi</div>
+<div class="lead">
+    Šeit var apskatīt pēdējos jaunumus saistībā ar šo lapu.
+</div>
+<div class="pt-5">
+    {% for single in news %}
+      <div class="card">
+        <div class="card-header">
+          {{single.posted}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{single.title}}</h5>
+          <p class="card-text">{{single.text}}</p>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}
