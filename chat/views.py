@@ -88,3 +88,4 @@ def sendChat(request):
             room_obj.save()
     
     return redirect(reverse('chat:join'))
+
