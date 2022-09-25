@@ -83,7 +83,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 's5wLm4aEdLMWNvMlEoRJ',
+        'HOST': 'containers-us-west-73.railway.app',
+        'PORT': '6468',
     }
 }
 
@@ -132,6 +136,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-4d19.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-4d19.up.railway.app', 'https://virtualchurch.herokuapp.com/']
 
 CORS_ORIGIN_ALLOW_ALL = True
