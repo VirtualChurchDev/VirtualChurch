@@ -88,7 +88,3 @@ def sendChat(request):
             room_obj.save()
     
     return redirect(reverse('chat:join'))
-
-def mksuper(request):
-    User.objects.create_superuser("admin", "a@a.com", "Ernests23Justs")
-    return redirect('/')
