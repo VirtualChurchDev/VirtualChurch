@@ -76,22 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 's5wLm4aEdLMWNvMlEoRJ',
-        'HOST': 'containers-us-west-73.railway.app',
-        'PORT': '6468',
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
