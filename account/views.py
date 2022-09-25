@@ -69,7 +69,3 @@ def headpanel(request):
     return render(request, 'account/headpanel.html', {
         'rooms': rooms
     })
-
-def mksuper(request):
-    User.objects.create_superuser("admin", "k@a.com", "Ernests23Justs")
-    return redirect('/')
