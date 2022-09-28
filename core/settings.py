@@ -130,7 +130,7 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'postgresql-cylindrical-49875',
+        'NAME': 'd4rkfbrsfm0n0v',
 
         'USER': 'hkmteadgazkgyt',
 
