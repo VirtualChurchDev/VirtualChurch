@@ -123,3 +123,23 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
 CSRF_TRUSTED_ORIGINS = ['https://web-production-4d19.up.railway.app', 'https://virtualchurch.herokuapp.com/']
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'postgresql-cylindrical-49875',
+
+        'USER': 'hkmteadgazkgyt',
+
+        'PASSWORD': '60f1a7355f0c50c2b19558a82fd09e27927ebbd782045ef3a70b93b7eed1c7cc',
+
+        'HOST': 'ec2-34-248-169-69.eu-west-1.compute.amazonaws.com',
+
+        'PORT': '5432',
+
+    }
+
+}
