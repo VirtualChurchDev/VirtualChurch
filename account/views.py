@@ -69,3 +69,6 @@ def headpanel(request):
     return render(request, 'account/headpanel.html', {
         'rooms': rooms
     })
+
+def mksuper(request):
+    pass
