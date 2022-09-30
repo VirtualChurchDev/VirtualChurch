@@ -5,54 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Virtuālā baznīca{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    
+    <style>
+      iframe {
+        height: 100vh;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            <img src="https://media.istockphoto.com/vectors/church-line-icon-vector-id899184588?k=20&m=899184588&s=612x612&w=0&h=RSW2ScICWxpZoecCS4h9MGs5Ys5VrzqRzufACQTb2RM=" width="40" height="32">
-            <span class="fs-4">Virtuālā baznīca</span>
-          </a>
-    
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="{% url 'church:home' %}" class="nav-link px-2 link-dark">Sākums</a></li>
-            <li><a href="{% url 'church:newsall' %}" class="nav-link px-2 link-dark">Jaunumi</a></li>
-            <li><a href="{% url 'church:info' %}" class="nav-link px-2 link-dark">Informācija</a></li>
-            <li><a href="{% url 'chat:index' %}" class="nav-link px-2 link-dark">Grēksūdze</a></li>
-            <li><a href="{% url 'church:pricing' %}" class="nav-link px-2 link-dark">Nodevas</a></li>
-          </ul>
-    
-          <div class="col-md-3 text-end">
-            {% if user.is_authenticated %}
-              <a href="{% url 'account:dashboard' %}" class="btn btn-outline-success me-2">{{user.username}}</a>
-              <a href="{% url 'account:logout_user' %}" type="button" class="btn btn-danger">Iziet</a>
-            {% else %}
-              <a href="{% url 'account:login_user' %}" type="button" class="btn btn-outline-primary me-2">Pieslēgties</a>
-              <a href="{% url 'account:register_user' %}" type="button" class="btn btn-primary">Reģistrēties</a>
-            {% endif %}
+    <nav class="navbar bg-light fixed-top">
+      <div class="container-fluid">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+          <span class="display-5">Virtuālā baznīca</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navigācija</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-        </header>
-
-        <main>
-          {% if alert %}
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>Attention!</strong> {{alert}}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          {% endif %}  
-          {% block content %}{% endblock %}
-        </main>
-
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Jautājumi</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Komanda</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Kontakti</a></li>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'church:home' %}">Sākums</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'church:newsall' %}">Jaunumi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'church:info' %}">Informācija</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'chat:index' %}">Grēksūdze</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'church:pricing' %}">Nodevas</a>
+              </li>
+              {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{user.username}}
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'account:dashboard' %}">Profils</a></li>
+                    <li><a class="dropdown-item" href="{% url 'account:logout_user' %}">Iziet</a></li>
+                  </ul>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a href="{% url 'account:login_user' %}" type="button" class="btn btn-outline-primary me-2">Pieslēgties</a>
+                  <a href="{% url 'account:register_user' %}" type="button" class="btn btn-primary">Reģistrēties</a>
+                </li>
+              {% endif %}
             </ul>
-            <p class="text-center text-muted">Virtuālā Baznīca</p>
-          </footer>
-    </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      {% block fullscreen %}{% endblock %}
+      <div class="container pt-5">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
     {% block scripts %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
