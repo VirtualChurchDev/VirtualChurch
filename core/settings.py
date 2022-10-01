@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import mimetypes
 import django_heroku
+import dj_database_url
 
 mimetypes.add_type("text/css", ".css", True)
 
@@ -126,22 +127,9 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-4d19.up.railway.app', 'https://v
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+DATABASE_URL = os.environ.get('DATABASE_URL')
 DATABASES = {
 
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'd4rkfbrsfm0n0v',
-
-        'USER': 'hkmteadgazkgyt',
-
-        'PASSWORD': '60f1a7355f0c50c2b19558a82fd09e27927ebbd782045ef3a70b93b7eed1c7cc',
-
-        'HOST': 'ec2-34-248-169-69.eu-west-1.compute.amazonaws.com',
-
-        'PORT': '5432',
-
-    }
+    'default': dj_database_url.parse(DATABASE_URL)
 
 }
