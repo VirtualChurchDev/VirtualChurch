@@ -1,0 +1,6 @@
+To do:
+-Uztaisīt grēksūdzes čatu glabātuvi
+-Uztaisīt baznīcu profilus
+-Uztaisīt mācītāju profilus
+-Pačekot django tulkošanas sistēmu
+-Uztaisīt E-pastu sistēmu
