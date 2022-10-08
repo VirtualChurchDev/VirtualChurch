@@ -13,6 +13,12 @@
     <input name="message" class="form-control" id="input" type="text" size="80" placeholder="Type something...">
   </div>
   <button onclick="sendMessage()" id="submit" class="btn btn-success">Send</button>
+  <div class="text-center">
+    {% if is_head %}
+      <a href="{% url 'chat:index' %}complete/{{room_name}}" class="btn btn-info">Pabeigt sarunu</a>
+      <a href="{% url 'account:headpanel' %}" class="btn btn-light">Iziet nepabeidzot</a>
+    {% endif %}
+  </div>
   {{ request.user.id|json_script:"user-id" }}
   {{ request.user.username|json_script:"user-name" }}
   {{ room_name|json_script:"room-name" }}

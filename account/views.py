@@ -45,6 +45,9 @@ def dashboard(request):
     if not request.user.is_authenticated:
         return pleaseLogin(request)
     
+    user = User.objects.get(id=request.user.id)
+    rooms = Room.objects.filter(user=user)
+    
     is_headuser = False
     
     if HeadUserAccess.objects.filter(user=request.user.id):
@@ -52,6 +55,7 @@ def dashboard(request):
     
     return render(request, 'account/dashboard.html', {
         'is_headuser': is_headuser,
+        'rooms': rooms
     })
 
 def headpanel(request):
@@ -64,7 +68,7 @@ def headpanel(request):
             'text': 'Pārliecinies, vai esi pieslēdzies pareizajam kontam.',
         })
     
-    rooms = Room.objects.all()
+    rooms = Room.objects.filter(is_complete=False)
     
     return render(request, 'account/headpanel.html', {
         'rooms': rooms

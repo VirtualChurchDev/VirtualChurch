@@ -1,5 +1,5 @@
 To do:
--Uztaisīt grēksūdzes čatu glabātuvi
+-Uztaisīt grēksūdzes čatu glabātuvi DONE
 -Uztaisīt baznīcu profilus
 -Uztaisīt mācītāju profilus
 -Pačekot django tulkošanas sistēmu

@@ -1,17 +1,18 @@
+from contextlib import redirect_stderr
 import json
 from django.shortcuts import render, redirect, reverse
-from .models import Room
+from .models import Room, Report
 from account.models import HeadUserAccess
 from django.contrib.auth.models import User
 
 def index(request):
-    room = None
+    rooms = None
     if request.user.is_authenticated:
         if Room.objects.filter(user=request.user):
-            room = Room.objects.get(user=request.user)
+            rooms = Room.objects.filter(user=request.user)
     
     return render(request, 'chat/index.html', {
-        'room': room
+        'rooms': rooms
     })
 
 def room(request, room_name):
@@ -28,15 +29,18 @@ def room(request, room_name):
         return render(request, 'chat/chatroom.html', {
             'room_name': room_name,
             'text': text,
+            'is_head': True,
         })
     
-    if str(request.user.id) != room_name:
+    room_slug = room_name.split('-')
+    
+    if str(request.user.id) != room_slug[0]:
         return render(request, 'message.html', {
             'title': 'Tev nav pieejas šai istabai',
             'text': 'Pārbaudi, vai esi pieslēdzies pareizajam kontam.',
         })
         
-    room = Room.objects.get(slug=request.user.id)
+    room = Room.objects.get(slug=room_name)
     text = room.get_text()
     
     return render(request, 'chat/chatroom.html', {
@@ -50,18 +54,18 @@ def payment(request):
     
     return render(request, 'chat/payment.html')
 
-def join(request):
+def join(request, room_number):
     if not request.user.is_authenticated:
         return pleaseLogin(request)
     user_id = request.user.id
-    return redirect('/chat/' + str(user_id))
+    return redirect('/chat/' + str(user_id) + "-" + room_number)
 
 def create(request):
     if request.method == 'POST':
         body = json.loads(request.body)
         user = User.objects.get(id=body['user_id'])
-        if not Room.objects.filter(slug=str(user.id)):
-            obj = Room.objects.create(name=user.username, slug=str(user.id), user=user)
+        count = Room.objects.filter(user=user).count()
+        Room.objects.create(name=user.username + " " + str(count), slug=str(user.id) + "-" + str(count), user=user)
         
         print('donzo')
         return redirect('/chat/join/')
@@ -89,3 +93,30 @@ def sendChat(request):
     
     return redirect(reverse('chat:join'))
 
+def complete(request, room_number):
+    if not request.user.is_authenticated:
+        return pleaseLogin(request)
+    
+    if not HeadUserAccess.objects.filter(user=request.user.id):
+        return redirect('/')
+    
+    room = Room.objects.get(slug=room_number)
+    room.complete()
+    
+    Report.objects.create(client=str(room.user.username), head=str(request.user.username), chat=str(room.get_text()), room_name=room_number)
+    
+    return redirect(reverse('account:headpanel'))
+
+def delete(request, room_number):
+    if not request.user.is_authenticated:
+        return pleaseLogin(request)
+    
+    room_slug = room_number.split('-')
+    
+    if str(request.user.id) != room_slug[0]:
+        return redirect("/")
+    
+    room = Room.objects.get(slug=room_number)
+    room.delete()
+    
+    return redirect(reverse('account:dashboard'))

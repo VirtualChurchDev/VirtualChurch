@@ -21,4 +21,34 @@
         <a href="{% url 'account:headpanel' %}" type="button" class="btn btn-info">Mācītāja panelis</a>
     </div>
 {% endif %}
+<div class="display-3">Tavas istabas:</div>
+<div class="pt-5 pb-5">
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">Nosaukums</th>
+              <th scope="col">Status</th>
+              <th scope="col" class="text-end">Darbības</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for room in rooms %}
+                <tr>
+                    <th scope="row" class="align-middle">{{room.name}}</th>
+                    <td class="align-middle">
+                        {% if room.is_complete %}
+                            <div class="text-secondary">Pabeigta</div>
+                        {% else %}
+                            <div class="text-success">Aktīva</div>
+                        {% endif %}
+                    </td>
+                    <td class="text-end">
+                        <a href="{% url 'chat:index' %}{{room.slug}}" type="button" class="btn btn-success">Skatīt</a>
+                        <a href="{% url 'chat:index' %}delete/{{room.slug}}" type="button" class="btn btn-danger">Dzēst</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
