@@ -1,0 +1,34 @@
+{% extends '../core.html' %}
+
+{% block content %}
+<div class="display-3">{{single.title}}</div>
+<div class="lead">
+    <span class="badge bg-secondary">{{single.type}}</span>
+</div>
+<div class="pt-5">
+    <img src="{{single.foto}}" width="100%" width="auto">
+
+    <h2 class="pt-3">
+        Apraksts
+    </h2>
+    <p>
+      {{single.description}}
+    </p>
+
+    <h2 class="pt-3">
+        Mācītāji
+    </h2>
+    <p>
+      Mācītājs Alberts
+      Mācītājs Juris
+      Pāvests Pāvels
+    </p>
+
+    <h2 class="pt-3">
+        360 tūre
+    </h2>
+    <p>
+        <a href="/church/{{single.slug}}/tour/" class="btn btn-primary">Skatīt</a>
+    </p>
+</div>
+{% endblock %}

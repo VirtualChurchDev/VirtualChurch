@@ -8,4 +8,7 @@ urlpatterns = [
     path('pricing/', views.pricing, name='pricing'),
     path('newsall/', views.newsall, name='newsall'),
     path('info/', views.info, name='info'),
+    path('browse/churches/', views.churchbrowser, name="churchbrowser"),
+    path('church/<str:slug>', views.singlechurch, name="singlechurch"),
+    path('church/<str:slug>/tour/', views.singlechurchtour, name="singlechurchtour"),
 ]

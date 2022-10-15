@@ -8,11 +8,13 @@
     <label for="exampleFormControlTextarea1" class="form-label">Grēksūdzes istaba nr. {{room_name}}</label>
     <textarea class="form-control" id="chat-text" cols="80" rows="30" readonly>{{text}}</textarea>
   </div>
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label"></label>
-    <input name="message" class="form-control" id="input" type="text" size="80" placeholder="Type something...">
-  </div>
-  <button onclick="sendMessage()" id="submit" class="btn btn-success">Send</button>
+  {% if is_complete %}
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"></label>
+      <input name="message" class="form-control" id="input" type="text" size="80" placeholder="Type something...">
+    </div>
+    <button onclick="sendMessage()" id="submit" class="btn btn-success">Send</button>
+  {% endif %}
   <div class="text-center">
     {% if is_head %}
       <a href="{% url 'chat:index' %}complete/{{room_name}}" class="btn btn-info">Pabeigt sarunu</a>

@@ -46,6 +46,7 @@ def room(request, room_name):
     return render(request, 'chat/chatroom.html', {
         'room_name': room_name,
         'text': text,
+        'is_complete': room.is_complete,
     })
     
 def payment(request):

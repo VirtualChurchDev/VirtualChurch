@@ -1,0 +1,21 @@
+{% extends '../core.html' %}
+
+{% block content %}
+<div class="display-3">Baznīcas</div>
+<div class="lead">
+    Visas baznīcas
+</div>
+<div class="pt-5">
+    {% for single in churches %}
+      <div class="card" style="width: 18rem;">
+        <img src="{{single.foto}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <span class="badge bg-secondary">{{single.type}}</span>
+          <h5 class="card-title">{{single.title}}</h5>
+          <p class="card-text">{{single.description|slice:":80"}}...</p>
+          <a href="/church/{{single.slug}}" class="btn btn-primary">Skatīt</a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}
