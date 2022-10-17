@@ -1,9 +1,9 @@
-from contextlib import redirect_stderr
 import json
 from django.shortcuts import render, redirect, reverse
 from .models import Room, Report
 from account.models import HeadUserAccess
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 def index(request):
     rooms = None
@@ -18,6 +18,9 @@ def index(request):
 def room(request, room_name):
     if not request.user.is_authenticated:
         return pleaseLogin(request)
+    
+    if room_name.split('-')[0] == 'dm':
+        return dm(request, room_name)
         
     if HeadUserAccess.objects.filter(user=request.user.id):
         if not Room.objects.filter(slug=room_name):
@@ -87,12 +90,21 @@ def sendChat(request):
         body = json.loads(request.body)
         text = body['message']
         room_name = body['room_name']
+        
+        if room_name.split('-')[0] == 'dm':
+            if str(request.user.id) == room_name.split('-')[1] or str(request.user.id) == room_name.split('-')[2]:
+                room_obj = Room.objects.get(slug=room_name)
+                room_obj.set_text(room_obj.get_text() + '\n' + str(request.user.username) + ': ' + str(text))
+                room_obj.save()
+        
         if HeadUserAccess.objects.filter(user=request.user.id) or str(request.user.id) == room_name:
             room_obj = Room.objects.get(slug=room_name)
             room_obj.set_text(room_obj.get_text() + '\n' + str(request.user.username) + ': ' + str(text))
             room_obj.save()
+        
+        return redirect('/chat/' + room_name)
     
-    return redirect(reverse('chat:join'))
+    return redirect(reverse('/'))
 
 def complete(request, room_number):
     if not request.user.is_authenticated:
@@ -119,5 +131,51 @@ def delete(request, room_number):
     
     room = Room.objects.get(slug=room_number)
     room.delete()
+    
+    return redirect(reverse('account:dashboard'))
+
+def dm(request, dm_name):
+    if not request.user.is_authenticated:
+        return pleaseLogin(request)
+    
+    info = dm_name.split('-')
+    
+    if str(request.user.id) == info[1] or str(request.user.id) == info[2]:
+        if not Room.objects.filter(slug=dm_name):
+            return redirect('/')
+        
+        dm_room = Room.objects.get(slug=dm_name)
+        user = User.objects.get(id=int(info[2]))
+        head = HeadUserAccess.objects.get(user=user)
+        
+        return render(request, 'chat/chatroom.html', {
+            'room_name': dm_room.slug,
+            'text': dm_room.get_text(),
+            'is_complete': dm_room.is_complete,
+        })
+    
+    return redirect('/')
+
+def createdm(request, slug):
+    if not request.user.is_authenticated:
+        return pleaseLogin(request)
+    
+    if not HeadUserAccess.objects.filter(slug=slug):
+        return redirect('/')
+    
+    head = HeadUserAccess.objects.get(slug=slug)
+    
+    if Room.objects.filter(slug=slugify("dm-" + str(request.user.id) + "-" + str(head.user.id))):
+        return render(request, 'message.html', {
+            'title': 'Tāda istaba jau eksistē',
+            'text': 'Saraksti var atrast savā profilā',
+        })
+    
+    Room.objects.create(
+        name="Sarakste ar " + head.name,
+        slug=slugify("dm-" + str(request.user.id) + "-" + str(head.user.id)),
+        user=request.user,
+        text="Uzsākta sarakste.\n"
+    )
     
     return redirect(reverse('account:dashboard'))

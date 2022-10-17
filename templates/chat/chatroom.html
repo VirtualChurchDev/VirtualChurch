@@ -8,7 +8,7 @@
     <label for="exampleFormControlTextarea1" class="form-label">Grēksūdzes istaba nr. {{room_name}}</label>
     <textarea class="form-control" id="chat-text" cols="80" rows="30" readonly>{{text}}</textarea>
   </div>
-  {% if is_complete %}
+  {% if not is_complete %}
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label"></label>
       <input name="message" class="form-control" id="input" type="text" size="80" placeholder="Type something...">

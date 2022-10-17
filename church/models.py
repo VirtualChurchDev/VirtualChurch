@@ -23,3 +23,7 @@ class Church(models.Model):
     
     class Meta:
         verbose_name_plural = 'Churches'
+    
+    
+    def __str__(self):
+        return self.title

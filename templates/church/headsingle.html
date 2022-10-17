@@ -1,0 +1,33 @@
+{% extends '../core.html' %}
+
+{% block content %}
+<div class="display-3">{{single.name}}</div>
+<div class="lead">
+    <span class="badge bg-secondary">{{single.role}}</span>
+</div>
+<div class="pt-5">
+    <img src="{{single.foto}}" width="100%" width="auto">
+
+    <h2 class="pt-3">
+        Apraksts
+    </h2>
+    <p>
+      {{single.description}}
+    </p>
+
+    <h2 class="pt-3">
+        Video
+    </h2>
+    <p>
+        <iframe width="100%" src="{{single.video}}">
+        </iframe>
+    </p>
+
+    <h2 class="pt-3">
+        Uzdod man jautājumu
+    </h2>
+    <p>
+        <a href="/chat/create/dm/{{single.slug}}" class="btn btn-primary">Uzsākt saraksti</a>
+    </p>
+</div>
+{% endblock %}

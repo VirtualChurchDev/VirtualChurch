@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render, reverse
 from .models import News, Church
+from account.models import HeadUserAccess
 
 def home(request):
     return render(request, 'church/home.html')
@@ -36,5 +37,20 @@ def singlechurchtour(request, slug):
     
     single = Church.objects.get(slug=slug)
     return render(request, 'church/churchsingletour.html',{
+        'single': single,
+    })
+
+def headbrowser(request):
+    heads=HeadUserAccess.objects.all()
+    return render(request, 'church/headbrowser.html', {
+        'heads': heads,
+    })
+
+def singlehead(request, slug):
+    if not HeadUserAccess.objects.filter(slug=slug):
+        return redirect(reverse('church:headbrowser'))
+    
+    single = HeadUserAccess.objects.get(slug=slug)
+    return render(request, 'church/headsingle.html', {
         'single': single,
     })

@@ -3,4 +3,5 @@ from .models import HeadUserAccess
 
 @admin.register(HeadUserAccess)
 class HeadUserAccessAdmin(admin.ModelAdmin):
-    list_display = ['user']
+    list_display = ['user', 'role', 'name', 'church']
+    prepopulated_fields = {'slug': ('name',)}

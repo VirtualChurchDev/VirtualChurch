@@ -1,20 +1,20 @@
 {% extends '../core.html' %}
 
 {% block content %}
-<div class="display-3">Baznīcas</div>
+<div class="display-3">Mācītāji</div>
 <div class="lead">
-    Visas baznīcas
+    Visi mācītāji
 </div>
 <div class="row row-cols-1 row-cols-md-4 g-4 pt-5">
-    {% for single in churches %}
+    {% for single in heads %}
       <div class="col">  
         <div class="card" style="width: 18rem;">
           <img src="{{single.foto}}" class="card-img-top" alt="...">
           <div class="card-body">
-            <span class="badge bg-secondary">{{single.type}}</span>
-            <h5 class="card-title">{{single.title}}</h5>
+            <span class="badge bg-secondary">{{single.role}}</span>
+            <h5 class="card-title">{{single.name}}</h5>
             <p class="card-text">{{single.description|slice:":80"}}...</p>
-            <a href="/church/{{single.slug}}" class="btn btn-primary">Skatīt</a>
+            <a href="/head/{{single.slug}}" class="btn btn-primary">Skatīt</a>
           </div>
         </div>
       </div>

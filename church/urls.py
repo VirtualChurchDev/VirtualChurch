@@ -11,4 +11,6 @@ urlpatterns = [
     path('browse/churches/', views.churchbrowser, name="churchbrowser"),
     path('church/<str:slug>', views.singlechurch, name="singlechurch"),
     path('church/<str:slug>/tour/', views.singlechurchtour, name="singlechurchtour"),
+    path('browse/heads/', views.headbrowser, name="headbrowser"),
+    path('head/<str:slug>', views.singlehead, name="singlehead"),
 ]

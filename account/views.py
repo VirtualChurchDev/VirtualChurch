@@ -68,7 +68,11 @@ def headpanel(request):
             'text': 'Pārliecinies, vai esi pieslēdzies pareizajam kontam.',
         })
     
-    rooms = Room.objects.filter(is_complete=False)
+    org_rooms = Room.objects.filter(is_complete=False)
+    rooms = []
+    for room in org_rooms:
+        if room.slug.split('-')[0] != 'dm':
+            rooms.append(room)
     
     return render(request, 'account/headpanel.html', {
         'rooms': rooms

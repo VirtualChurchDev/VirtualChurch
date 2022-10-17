@@ -1,10 +1,10 @@
 To do:
 -Uztaisīt grēksūdzes čatu glabātuvi DONE
--Uztaisīt baznīcu profilus
+-Uztaisīt baznīcu profilus DONE
     Tips, Nosaukums, slug, Bilde, Apraksts(Sadalīt sīkāk), 360 tūre
--Uztaisīt mācītāju profilus
+-Uztaisīt mācītāju profilus DONE
     Baznīca, Pakāpe, Vārds, slug, Bilde, Apraksts(Sadalīt sīkāk), Videoklips
--Privātātās sarakstes DM
+-Privātātās sarakstes DM DONE
     Samaksā naudu, lai uzdotu vienu jautājumu kādam mācītājam.
     Vajadzēs izveidot jaunu modeli, vai arī nē. Varbūt uztaisīt Prefix "dm"
 -Pačekot django tulkošanas sistēmu
