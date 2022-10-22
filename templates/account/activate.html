@@ -1,0 +1,7 @@
+{% autoescape off %}
+Sveiki, {{ user }}!
+
+Lūdzu, dodieties uz šo saiti, lai pabeigtu reģistrāciju:
+
+{{ protocol }}://{{ domain }}/account/activate/{{uid}}/{{token}}
+{% endautoescape%}
