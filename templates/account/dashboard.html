@@ -13,6 +13,10 @@
             <th scope="row">Ē-pasts</th>
             <td>{{request.user.email}}</td>
         </tr>
+        <tr>
+            <th scope="row">Parole</th>
+            <td><a href="{% url 'account:password_change' %}" type="button" class="btn btn-primary">Mainīt</a></td>
+        </tr>
     </tbody>
     </table>
 </div>

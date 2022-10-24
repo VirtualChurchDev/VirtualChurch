@@ -1,0 +1,7 @@
+{% autoescape off %}
+Sveiki, {{ user }}!
+
+Lūdzu, dodieties uz šo saiti, lai atkoptu paroli:
+
+{{ protocol }}://{{ domain }}/account/recovery/{{uid}}/{{token}}
+{% endautoescape%}

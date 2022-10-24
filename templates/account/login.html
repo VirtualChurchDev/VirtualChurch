@@ -1,6 +1,11 @@
 {% extends '../core.html' %}
 
 {% block content %}
+{% if alert %}
+    <div class="alert alert-danger" role="alert">
+        <strong>Radās kļūda pieslēgšanās procesā.</strong> Pārliecinaties, ka pareizi ievadījāt datus, vai atkopjat paroli, izmantojot e-pastu.
+    </div>
+{% endif %}
 <div class="display-3">Pieslēgties</div>
 <form action="" method="post" class="pt-5">
     {% csrf_token %}
@@ -14,4 +19,9 @@
     </div>
     <button type="submit" class="btn btn-primary">Pieslēgties</button>
 </form>
+<div class="pt-3">
+  <small><a href="{% url 'account:register_user' %}">Nav konta?</a></small>
+  <br>
+  <small><a href="{% url 'account:password_recover' %}">Aizmirsi paroli?</a></small>
+</div>
 {% endblock %}

@@ -31,6 +31,9 @@
         <label for="exampleInputPassword1" class="form-label">Parole atkārtoti</label>
         {{form.password2}}
     </div>
-    <button type="submit" class="btn btn-primary">Pieslēgties</button>
+    <button type="submit" class="btn btn-primary">Reģistrēties</button>
 </form>
+<div class="pt-3">
+    <small><a href="{% url 'account:login_user' %}">Man jau ir konts</a></small>
+  </div>
 {% endblock %}
