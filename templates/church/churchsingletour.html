@@ -1,8 +1,35 @@
 {% extends '../core.html' %}
+{% load static %}
+
+{% block head %}
+<style>
+    .image-container {
+        height: 100vh;
+        width: 100%;
+    }
+</style>
+{% endblock %}
 
 {% block fullscreen %}
-<iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" src="{{single.tour}}"></iframe>
+<div class="image-container">
+
+</div>
 <div class="position-absolute bottom-0 start-50 translate-middle-x">
     <h1 class="text-center"><span class="badge bg-light text-bg-light"></span></h1>
 </div>
 {% endblock %}
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js" integrity="sha512-uWKImujbh9CwNa8Eey5s8vlHDB4o1HhrVszkympkm5ciYTnUEQv3t4QHU02CUqPtdKTg62FsHo12x63q6u0wmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{% static '360/panolens.min.js' %}"></script>
+<script>
+    const panoramaImage = new PANOLENS.ImagePanorama("{{single.tour}}");
+    const imageContainer = document.querySelector(".image-container");
+
+    const viewer = new PANOLENS.Viewer({
+        container: imageContainer
+    });
+
+    viewer.add(panoramaImage);
+</script>
+{% endblock %}
+
