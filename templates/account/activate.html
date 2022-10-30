@@ -1,7 +1,10 @@
 {% autoescape off %}
-Sveiki, {{ user }}!
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
-Lūdzu, dodieties uz šo saiti, lai pabeigtu reģistrāciju:
+{% translate 'Sveiki' %}, {{ user }}!
 
-{{ protocol }}://{{ domain }}/account/activate/{{uid}}/{{token}}
+{% translate 'Lūdzu, dodieties uz šo saiti, lai pabeigtu reģistrāciju:' %}
+
+{{ protocol }}://{{ domain }}/{{LANGUAGE_CODE}}/account/activate/{{uid}}/{{token}}
 {% endautoescape%}

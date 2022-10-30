@@ -1,11 +1,13 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
   <div class="fs-6 text-center">
-    Pieslēdzies kā {{request.user.username}}
+    {% translate 'Pieslēdzies kā' %} {{request.user.username}}
   </div>  
   <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Grēksūdzes istaba nr. {{room_name}}</label>
+    <label for="exampleFormControlTextarea1" class="form-label">{% translate 'Grēksūdzes istaba nr.' %} {{room_name}}</label>
     <textarea class="form-control" id="chat-text" cols="80" rows="30" readonly>{{text}}</textarea>
   </div>
   {% if not is_complete %}
@@ -13,12 +15,12 @@
       <label for="exampleFormControlInput1" class="form-label"></label>
       <input name="message" class="form-control" id="input" type="text" size="80" placeholder="Type something...">
     </div>
-    <button onclick="sendMessage()" id="submit" class="btn btn-success">Send</button>
+    <button onclick="sendMessage()" id="submit" class="btn btn-success">{% translate 'Sūtīt' %}</button>
   {% endif %}
   <div class="text-center">
     {% if is_head %}
-      <a href="{% url 'chat:index' %}complete/{{room_name}}" class="btn btn-info">Pabeigt sarunu</a>
-      <a href="{% url 'account:headpanel' %}" class="btn btn-light">Iziet nepabeidzot</a>
+      <a href="/{{LANGUAGE_CODE}}{% url 'chat:index' %}complete/{{room_name}}" class="btn btn-info">{% translate 'Pabeigt sarunu' %}</a>
+      <a href="/{{LANGUAGE_CODE}}{% url 'account:headpanel' %}" class="btn btn-light">{% translate 'Iziet nepabeidzot' %}</a>
     {% endif %}
   </div>
   {{ request.user.id|json_script:"user-id" }}
@@ -43,7 +45,7 @@
         'message': document.getElementById('input').value,
         'room_name': room_name,
       };
-      const url = "{% url 'chat:send' %}"
+      const url = "/{{LANGUAGE_CODE}}{% url 'chat:send' %}"
       const csrftoken = getCookie('csrftoken')
   
       fetch(url, {

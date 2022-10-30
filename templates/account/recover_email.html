@@ -1,7 +1,9 @@
 {% autoescape off %}
-Sveiki, {{ user }}!
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% translate 'Sveiki' %}, {{ user }}!
 
-Lūdzu, dodieties uz šo saiti, lai atkoptu paroli:
+{% translate 'Lūdzu, dodieties uz šo saiti, lai atkoptu paroli:' %}
 
-{{ protocol }}://{{ domain }}/account/recovery/{{uid}}/{{token}}
+{{ protocol }}://{{ domain }}/{{LANGUAGE_CODE}}/account/recovery/{{uid}}/{{token}}
 {% endautoescape%}

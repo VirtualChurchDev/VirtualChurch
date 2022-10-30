@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,3 +25,11 @@ urlpatterns = [
     path('account/', include('django.contrib.auth.urls')),
     path('account/', include('account.urls', namespace='account')),
 ]
+
+urlpatterns += i18n_patterns (
+    path('admin/', admin.site.urls),
+    path('', include('church.urls', namespace='church')),
+    path('chat/', include('chat.urls', namespace='chat')),
+    path('account/', include('django.contrib.auth.urls')),
+    path('account/', include('account.urls', namespace='account')),
+)

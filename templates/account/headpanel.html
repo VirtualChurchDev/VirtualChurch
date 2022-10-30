@@ -1,14 +1,16 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
-<div class="display-3">Grēksūdzes istabas</div>
+<div class="display-3">{% translate 'Grēksūdzes istabas' %}</div>
 <div class="pt-5 pb-5 text-center">
     <table class="table">
         <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Nosaukums</th>
-              <th scope="col">Pievienoties</th>
+              <th scope="col">{% translate 'Nosaukums' %}</th>
+              <th scope="col">{% translate 'Pievienoties' %}</th>
             </tr>
         </thead>
         <tbody>
@@ -16,7 +18,7 @@
                 <tr>
                     <th scope="row" class="">{{room.slug}}</th>
                     <td>{{room.name}}</td>
-                    <td><a href="{% url 'chat:index' %}{{room.slug}}" type="button" class="btn btn-success">Pievienoties</a></td>
+                    <td><a href="/{{LANGUAGE_CODE}}{% url 'chat:index' %}{{room.slug}}" type="button" class="btn btn-success">{% translate 'Pievienoties' %}</a></td>
                 </tr>
             {% endfor %}
         </tbody>

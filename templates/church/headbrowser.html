@@ -1,9 +1,11 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
-<div class="display-3">Mācītāji</div>
+<div class="display-3">{% translate 'Mācītāji' %}</div>
 <div class="lead">
-    Visi mācītāji
+  {% translate 'Visi mācītāji' %}
 </div>
 <div class="row row-cols-1 row-cols-md-4 g-4 pt-5">
     {% for single in heads %}
@@ -14,7 +16,7 @@
             <span class="badge bg-secondary">{{single.role}}</span>
             <h5 class="card-title">{{single.name}}</h5>
             <p class="card-text">{{single.description|slice:":80"}}...</p>
-            <a href="/head/{{single.slug}}" class="btn btn-primary">Skatīt</a>
+            <a href="/{{LANGUAGE_CODE}}/head/{{single.slug}}" class="btn btn-primary">{% translate 'Skatīt' %}</a>
           </div>
         </div>
       </div>

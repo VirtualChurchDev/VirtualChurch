@@ -1,9 +1,11 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
-<div class="display-3">Individuālā grēksūdzes istaba</div>
+<div class="display-3">{% translate 'Individuālā grēksūdzes istaba' %}</div>
 <div class="text-center fs-3 pt-5 pb-5">
-  <h2 class="">Nodeva baznīcai: 20€</h2>
+  <h2 class="">{% translate 'Nodeva baznīcai:' %} 20€</h2>
 </div>
 <!-- Replace "test" with your own sandbox Business account app client ID -->
 <script src="https://www.paypal.com/sdk/js?client-id=AXvxmiObho1A4BswaV5Gaf3zybg7fnb5WqfYw5a-1AFwwRHkuPob6DkccECJ-p5ZSN1AUDuwbq2Ma3sY&currency=EUR"></script>
@@ -23,9 +25,9 @@
   function completePayment(){
     const user_id = JSON.parse(document.getElementById('user-id').textContent);
     const data = { 'user_id': user_id };
-    const url = "{% url 'chat:create' %}"
+    const url = "/{{LANGUAGE_CODE}}{% url 'chat:create' %}"
     const csrftoken = getCookie('csrftoken')
-    const reurl = "{% url 'account:dashboard' %}"
+    const reurl = "/{{LANGUAGE_CODE}}{% url 'account:dashboard' %}"
 
     fetch(url, {
       method: 'POST',

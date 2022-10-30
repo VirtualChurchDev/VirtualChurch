@@ -1,4 +1,5 @@
 {% extends '../core.html' %}
+{% load i18n %}
 
 {% block content %}
 
@@ -6,74 +7,74 @@
     <div class="col">
       <div class="card mb-4 rounded-3 shadow-sm">
         <div class="card-header py-3">
-          <h4 class="my-0 fw-normal">Publiskais</h4>
+          <h4 class="my-0 fw-normal">{% translate 'Publiskais' %}</h4>
         </div>
         <div class="card-body">
-          <h1 class="card-title pricing-card-title">€0<small class="text-muted fw-light"> uz mūžu</small></h1>
+          <h1 class="card-title pricing-card-title">€0<small class="text-muted fw-light"> {% translate 'uz mūžu' %}</small></h1>
           <ul class="list-unstyled mt-3 mb-4">
-            <li>Pieeja jaunumiem</li>
-            <li>Konts par brīvu</li>
-            <li>Pieeja publiskajai sarakstei</li>
+            <li>{% translate 'Pieeja jaunumiem' %}</li>
+            <li>{% translate 'Konts par brīvu' %}</li>
+            <li>{% translate 'Pieeja publiskajai saraksteis' %}</li>
           </ul>
-          <button type="button" class="w-100 btn btn-lg btn-outline-primary">Reģistrējies par brīvu</button>
+          <button type="button" class="w-100 btn btn-lg btn-outline-primary">{% translate 'Reģistrējies par brīvu' %}</button>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card mb-4 rounded-3 shadow-sm">
         <div class="card-header py-3">
-          <h4 class="my-0 fw-normal">Individuālas</h4>
+          <h4 class="my-0 fw-normal">{% translate 'Individuālais' %}</h4>
         </div>
         <div class="card-body">
-          <h1 class="card-title pricing-card-title">€20<small class="text-muted fw-light"> par istabu</small></h1>
+          <h1 class="card-title pricing-card-title">€20<small class="text-muted fw-light"> {% translate 'par istabu' %}</small></h1>
           <ul class="list-unstyled mt-3 mb-4">
-            <li>Individuāla grēksūdzes istaba</li>
-            <li>Personīga mācītāja pieeja</li>
-            <li>Pilnīga anonimitāte</li>
+            <li>{% translate 'Individuāla grēksūdzes istaba' %}</li>
+            <li>{% translate 'Personīga mācītāja pieeja' %}</li>
+            <li>{% translate 'Pilnīga anonimitāte' %}</li>
           </ul>
-          <button type="button" class="w-100 btn btn-lg btn-primary">Izveidot istabu</button>
+          <button type="button" class="w-100 btn btn-lg btn-primary">{% translate 'Izveidot istabu' %}</button>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card mb-4 rounded-3 shadow-sm border-primary">
         <div class="card-header py-3 text-bg-primary border-primary">
-          <h4 class="my-0 fw-normal">Dalībnieks</h4>
+          <h4 class="my-0 fw-normal">{% translate 'Dalībnieks' %}</h4>
         </div>
         <div class="card-body">
-          <h1 class="card-title pricing-card-title">?<small class="text-muted fw-light">/mēnesī</small></h1>
+          <h1 class="card-title pricing-card-title">?<small class="text-muted fw-light">/{% translate 'mēnesī' %}</small></h1>
           <ul class="list-unstyled mt-3 mb-4">
-            <li>Drīzumā</li>
+            <li>{% translate 'Drīzumā' %}</li>
             <li>...</li>
             <li>...</li>
           </ul>
-          <button type="button" class="w-100 btn btn-lg btn-primary">Sazinies ar mums</button>
+          <button type="button" class="w-100 btn btn-lg btn-primary">{% translate 'Sazinies ar mums' %}</button>
         </div>
       </div>
     </div>
   </div>
 
-  <h2 class="display-6 text-center mb-4">Salīdzināt iespējas</h2>
+  <h2 class="display-6 text-center mb-4">{% translate 'Salīdzināt iespējas' %}</h2>
 
   <div class="table-responsive">
     <table class="table text-center">
       <thead>
         <tr>
           <th style="width: 34%;"></th>
-          <th style="width: 22%;">Publiskais</th>
-          <th style="width: 22%;">Individuālais</th>
-          <th style="width: 22%;">Dalībnieks</th>
+          <th style="width: 22%;">{% translate 'Publiskais' %}</th>
+          <th style="width: 22%;">{% translate 'Individuālais' %}</th>
+          <th style="width: 22%;">{% translate 'Dalībnieks' %}</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row" class="text-start">Pieeja jaunumiem</th>
+          <th scope="row" class="text-start">{% translate 'Pieeja jaunumiem' %}</th>
           <td>+</td>
           <td>+</td>
           <td>?</td>
         </tr>
         <tr>
-          <th scope="row" class="text-start">Publiskā sarakste</th>
+          <th scope="row" class="text-start">{% translate 'Publiskā sarakstes' %}</th>
           <td>+</td>
           <td>+</td>
           <td>?</td>
@@ -82,19 +83,19 @@
 
       <tbody>
         <tr>
-          <th scope="row" class="text-start">Individuālā grēksūdze</th>
+          <th scope="row" class="text-start">{% translate 'Individuālā sarakste' %}</th>
           <td></td>
           <td>+</td>
           <td>?</td>
         </tr>
         <tr>
-          <th scope="row" class="text-start">Personīga mācītāja pieeja</th>
+          <th scope="row" class="text-start">{% translate 'Personīga mācītāja pieeja' %}</th>
           <td></td>
           <td>+</td>
           <td>?</td>
         </tr>
         <tr>
-          <th scope="row" class="text-start">Pilnīga anonimitāte</th>
+          <th scope="row" class="text-start">{% translate 'Pilnīga anonimitāte' %}</th>
           <td></td>
           <td>+</td>
           <td>?</td>

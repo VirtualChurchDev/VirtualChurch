@@ -1,4 +1,6 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
 <div class="display-3">{{single.title}}</div>
@@ -9,14 +11,14 @@
     <img src="{{single.foto}}" width="100%" width="auto">
 
     <h2 class="pt-3">
-        Apraksts
+        {% translate 'Apraksts' %}
     </h2>
     <p>
       {{single.description}}
     </p>
 
     <h2 class="pt-3">
-        Mācītāji
+        {% translate 'Mācītāji' %}
     </h2>
     <p>
       Mācītājs Alberts
@@ -25,10 +27,10 @@
     </p>
 
     <h2 class="pt-3">
-        360 tūre
+        {% translate '360 tūre' %}
     </h2>
     <p>
-        <a href="/church/{{single.slug}}/tour/" class="btn btn-primary">Skatīt</a>
+        <a href="/{{LANGUAGE_CODE}}/church/{{single.slug}}/tour/" class="btn btn-primary">{% translate 'Skatīt' %}</a>
     </p>
 </div>
 {% endblock %}

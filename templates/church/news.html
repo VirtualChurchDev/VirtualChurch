@@ -1,9 +1,10 @@
 {% extends '../core.html' %}
+{% load i18n %}
 
 {% block content %}
-<div class="display-3">Jaunumi</div>
+<div class="display-3">{% translate 'Jaunumi' %}</div>
 <div class="lead">
-    Šeit var apskatīt pēdējos jaunumus saistībā ar šo lapu.
+  {% translate 'Šeit var apskatīt pēdējos jaunumus saistībā ar šo lapu.' %}
 </div>
 <div class="pt-5">
     {% for single in news %}

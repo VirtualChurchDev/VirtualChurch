@@ -8,6 +8,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.core.mail import EmailMessage
 from django.db.models.query_utils import Q
+from django.utils.translation import gettext_lazy as _
 
 from chat.models import Room
 from chat.views import pleaseLogin
@@ -35,7 +36,7 @@ def logout_user(request):
     return redirect('/')
 
 def activateEmail(request, user, to_email):
-    mail_subject= "Aktivizē savu lietotāja kontu."
+    mail_subject= _("Aktivizē savu lietotāja kontu.")
     message = render_to_string('account/activate.html', {
         'user': user.username,
         'domain': get_current_site(request).domain,
@@ -61,13 +62,13 @@ def activate(request, uidb64, token):
         user.save()
         
         return render(request, 'message.html', {
-            'title': 'Konts tika aktivizēts!',
-            'text': 'Tagad Jūs varat pieslēgties ar jauno kontu.',
+            'title': _('Konts tika aktivizēts!'),
+            'text': _('Tagad Jūs varat pieslēgties ar jauno kontu.'),
         })
     
     return render(request, 'message.html', {
-        'title': 'Aktivizēšanas saite ir nederīga!',
-        'text': 'Izveido jaunu kontu vai sazinies ar palīdzības komandu.',
+        'title': _('Aktivizēšanas saite ir nederīga!'),
+        'text': _('Izveido jaunu kontu vai sazinies ar palīdzības komandu.'),
     })
 
 def register_user(request):
@@ -79,13 +80,13 @@ def register_user(request):
             user.save()
             if activateEmail(request, user, form.cleaned_data.get('email')):
                 return render(request, 'message.html', {
-                    'title': 'Konts ir gandrīz izveidots!',
-                    'text': 'Lai pabeigtu konta izveidi, Jums jādodas uz aktivizēšanas saiti, kas Jums tikko tika nosūtīta uz e-pastu ' + user.email + '!',
+                    'title': _('Konts ir gandrīz izveidots!'),
+                    'text': _('Lai pabeigtu konta izveidi, Jums jādodas uz aktivizēšanas saiti, kas Jums tikko tika nosūtīta uz e-pastu ' + user.email + '!'),
                 })
             else:
                 return render(request, 'message.html', {
-                    'title': 'Neizdevās aktivizēt kontu!',
-                    'text': 'Tika veikts neveiksmīgs mēģinājums nosūtīt aktivizēšanas saiti uz ' + user.email + ' . Lūdzu pārbaudiet, vai esat pareizi ievadījuši e-pastu!',
+                    'title': _('Neizdevās aktivizēt kontu!'),
+                    'text': _('Tika veikts neveiksmīgs mēģinājums nosūtīt aktivizēšanas saiti uz ' + user.email + ' . Lūdzu pārbaudiet, vai esat pareizi ievadījuši e-pastu!'),
                 })
     else:
         form = RegisterUserForm()
@@ -117,8 +118,8 @@ def headpanel(request):
     
     if not HeadUserAccess.objects.filter(user=request.user.id):
         return render(request, 'message.html', {
-            'title': 'Nav pieejas',
-            'text': 'Pārliecinies, vai esi pieslēdzies pareizajam kontam.',
+            'title': _('Nav pieejas'),
+            'text': _('Pārliecinies, vai esi pieslēdzies pareizajam kontam.'),
         })
     
     org_rooms = Room.objects.filter(is_complete=False)
@@ -140,13 +141,13 @@ def password_change(request):
         if form.is_valid():
             form.save()
             return render(request, 'message.html', {
-                'title': 'Parole ir nomainīta!',
-                'text': 'Tagad vari pieslēgties kontam ar jauno paroli.',
+                'title': _('Parole ir nomainīta!'),
+                'text': _('Tagad vari pieslēgties kontam ar jauno paroli.'),
             })
         else:
             return render(request, 'message.html', {
-                'title': 'Paroles mainīšana neizdevās!',
-                'text': 'Mēģiniet vēlreiz vai sazinaties ar palīdzības komandu.',
+                'title': _('Paroles mainīšana neizdevās!'),
+                'text': _('Mēģiniet vēlreiz vai sazinaties ar palīdzības komandu.'),
             })
             
     form = SetPasswordForm(user)
@@ -159,7 +160,7 @@ def password_recover(request):
             user_email = form.cleaned_data['email']
             associated_user = User.objects.filter(Q(email=user_email)).first()
             if associated_user:
-                mail_subject= "Aktivizē savu lietotāja kontu."
+                mail_subject= _("Aktivizē savu lietotāja kontu.")
                 message = render_to_string('account/recover_email.html', {
                     'user': associated_user.username,
                     'domain': get_current_site(request).domain,
@@ -170,13 +171,13 @@ def password_recover(request):
                 email = EmailMessage(mail_subject, message, to=[associated_user.email])
                 if email.send():
                     return render(request, 'message.html', {
-                        'title': 'Atkopšanas saite nosūtīta!',
-                        'text': 'Uz e-pastu ' + associated_user.email + ' tika nosūtīta saite, lai atkoptu paroli.',
+                        'title': _('Atkopšanas saite nosūtīta!'),
+                        'text': _('Uz e-pastu ' + associated_user.email + ' tika nosūtīta saite, lai atkoptu paroli.'),
                     })
                 else:
                     return render(request, 'message.html', {
-                        'title': 'Radās problēma...',
-                        'text': 'Diemžēl neizdevās nosūtīt atkopšanas saiti uz e-pastu ' + associated_user.email + ' . Mēģiniet vēlreiz vai sazinaties ar palīdzības komandu.',
+                        'title': _('Radās problēma...'),
+                        'text': _('Diemžēl neizdevās nosūtīt atkopšanas saiti uz e-pastu ' + associated_user.email + ' . Mēģiniet vēlreiz vai sazinaties ar palīdzības komandu.'),
                     })
     
     form = PasswordResetForm()
@@ -195,14 +196,14 @@ def recovery(request, uidb64, token):
             if form.is_valid():
                 form.save()
                 return render(request, 'message.html', {
-                    'title': 'Parole atkopta!',
-                    'text': 'Tagad varat pieslēgties ar jauno paroli',
+                    'title': _('Parole atkopta!'),
+                    'text': _('Tagad varat pieslēgties ar jauno paroli'),
                 })
         
         form = SetPasswordForm(user, request.POST)
         return render(request, 'account/recovery.html', {'form': form})
     
     return render(request, 'message.html', {
-        'title': 'Atkopšanas saite ir nederīga!',
-        'text': 'Mēģini vēlreiz vai sazinies ar palīdzības komandu.',
+        'title': _('Atkopšanas saite ir nederīga!'),
+        'text': _('Mēģini vēlreiz vai sazinies ar palīdzības komandu.'),
     })

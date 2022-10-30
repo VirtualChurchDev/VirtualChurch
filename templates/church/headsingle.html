@@ -1,4 +1,6 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
 <div class="display-3">{{single.name}}</div>
@@ -9,7 +11,7 @@
     <img src="{{single.foto}}" width="100%" width="auto">
 
     <h2 class="pt-3">
-        Apraksts
+        {% translate 'Apraksts' %}
     </h2>
     <p>
       {{single.description}}
@@ -24,10 +26,10 @@
     </p>
 
     <h2 class="pt-3">
-        Uzdod man jautājumu
+        {% translate 'Uzdod man jautājumi' %}
     </h2>
     <p>
-        <a href="/chat/create/dm/{{single.slug}}" class="btn btn-primary">Uzsākt saraksti</a>
+        <a href="/{{LANGUAGE_CODE}}/chat/create/dm/{{single.slug}}" class="btn btn-primary">{% translate 'Uzsākt saraksti' %}</a>
     </p>
 </div>
 {% endblock %}

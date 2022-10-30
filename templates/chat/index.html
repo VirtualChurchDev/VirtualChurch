@@ -1,20 +1,22 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
-<div class="display-3">Grēksūdze</div>
+<div class="display-3">{% translate 'Grēksūdze' %}</div>
 <div class="lead">
-    apraksts
+    {% translate 'apraksts' %}
 </div>
 <div>
-    <h1>Tava grēksūdzes izstaba:</h1>
+    <h1>{% translate 'Tava grēksūdzes izstaba:' %}</h1>
     {% if request.user.is_authenticated %}
         {% if room %}
-            <a href="{% url 'chat:join' %}" type="button" class="btn btn-primary">Pievienoties</a>
+            <a href="/{{LANGUAGE_CODE}}{% url 'chat:join' %}" type="button" class="btn btn-primary">{% translate 'Pievienoties' %}</a>
         {% else %}
-            <a href="{% url 'chat:payment' %}" type="button" class="btn btn-success">Izveidot</a>
+            <a href="/{{LANGUAGE_CODE}}{% url 'chat:payment' %}" type="button" class="btn btn-success">{% translate 'Izveidot' %}</a>
         {% endif%}
     {% else %}
-        <p class="fs-5 fw-light"><small>Pieslēdzies, lai apskatītu vai izveidotu istabu!</small></p>
+        <p class="fs-5 fw-light"><small>{% translate 'Pieslēdzies, lai apskatītu vai izveidotu istabu!' %}</small></p>
     {% endif %}
 </div>
 {% endblock %}

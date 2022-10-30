@@ -1,38 +1,40 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
-<div class="display-3">Konta informācija</div>
+<div class="display-3">{% translate 'Konta informācija' %}</div>
 <div class="pt-5 pb-5">
     <table class="table">
     <tbody>
         <tr>
-            <th scope="row">Lietotājvārds</th>
+            <th scope="row">{% translate 'Lietotājvārds' %}</th>
             <td>{{request.user.username}}</td>
         </tr>
         <tr>
-            <th scope="row">Ē-pasts</th>
+            <th scope="row">{% translate 'Ē-pasts' %}</th>
             <td>{{request.user.email}}</td>
         </tr>
         <tr>
-            <th scope="row">Parole</th>
-            <td><a href="{% url 'account:password_change' %}" type="button" class="btn btn-primary">Mainīt</a></td>
+            <th scope="row">{% translate 'Parole' %}</th>
+            <td><a href="/{{LANGUAGE_CODE}}{% url 'account:password_change' %}" type="button" class="btn btn-primary">{% translate 'Mainīt' %}</a></td>
         </tr>
     </tbody>
     </table>
 </div>
 {% if is_headuser %}
     <div class="text-center">
-        <a href="{% url 'account:headpanel' %}" type="button" class="btn btn-info">Mācītāja panelis</a>
+        <a href="/{{LANGUAGE_CODE}}{% url 'account:headpanel' %}" type="button" class="btn btn-info">{% translate 'Mācītāja panelis' %}</a>
     </div>
 {% endif %}
-<div class="display-3">Tavas istabas:</div>
+<div class="display-3">{% translate 'Tavas istabas:' %}</div>
 <div class="pt-5 pb-5">
     <table class="table">
         <thead>
             <tr>
-              <th scope="col">Nosaukums</th>
-              <th scope="col">Status</th>
-              <th scope="col" class="text-end">Darbības</th>
+              <th scope="col">{% translate 'Nosaukums' %}</th>
+              <th scope="col">{% translate 'Status' %}</th>
+              <th scope="col" class="text-end">{% translate 'Darbības' %}</th>
             </tr>
         </thead>
         <tbody>
@@ -41,14 +43,14 @@
                     <th scope="row" class="align-middle">{{room.name}}</th>
                     <td class="align-middle">
                         {% if room.is_complete %}
-                            <div class="text-secondary">Pabeigta</div>
+                            <div class="text-secondary">{% translate 'Pabeigta' %}</div>
                         {% else %}
-                            <div class="text-success">Aktīva</div>
+                            <div class="text-success">{% translate 'Aktīva' %}</div>
                         {% endif %}
                     </td>
                     <td class="text-end">
-                        <a href="{% url 'chat:index' %}{{room.slug}}" type="button" class="btn btn-success">Skatīt</a>
-                        <a href="{% url 'chat:index' %}delete/{{room.slug}}" type="button" class="btn btn-danger">Dzēst</a>
+                        <a href="/{{LANGUAGE_CODE}}{% url 'chat:index' %}{{room.slug}}" type="button" class="btn btn-success">{% translate 'Skatīt' %}</a>
+                        <a href="/{{LANGUAGE_CODE}}{% url 'chat:index' %}delete/{{room.slug}}" type="button" class="btn btn-danger">{% translate 'Dzēst' %}</a>
                     </td>
                 </tr>
             {% endfor %}

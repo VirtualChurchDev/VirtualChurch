@@ -1,39 +1,41 @@
 {% extends '../core.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
 {% if form.errors %}
     <div class="alert alert-danger" role="alert">
-        <strong>Radās kļūda reģistrācijas procesā.</strong> Lūdzu pārliecinaties, vai visa informācija ir aizpildīta un atbilst nosacījumiem.
+        <strong>{% translate 'Radās kļūda reģistrācijas procesā.' %}</strong> {% translate 'Lūdzu pārliecinaties, vai visa informācija ir aizpildīta un atbilst nosacījumiem.' %}
     </div>
 {% endif %}
-<div class="display-3">Reģistrēties</div>
-<form action="{% url 'account:register_user' %}" method="post" class="pt-5">
+<div class="display-3">{% translate 'Reģistrēties' %}</div>
+<form action="/{{LANGUAGE_CODE}}{% url 'account:register_user' %}" method="post" class="pt-5">
     {% csrf_token %}
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Lietotājvārds</label>
+        <label for="exampleInputEmail1" class="form-label">{% translate 'Lietotājvārds' %}</label>
         {{form.username}}
     </div>
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">E-pasts</label>
+        <label for="exampleInputEmail1" class="form-label">{% translate 'E-pasts' %}</label>
         {{form.email}}
     </div>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Parole</label>
+        <label for="exampleInputPassword1" class="form-label">{% translate 'Parole' %}</label>
         {{form.password1}}
     </div>
     <ul>
-        <li>Parole nedrīkst būt līdzīga personīgajai informācijai.</li>
-        <li>Parolē jābūt vismaz 8 rakstzīmēm.</li>
-        <li>Parole nevar būt bieži izmantoja parole. Piemēram: 1234.</li>
-        <li>Parole nevar sastāvēt tikai no cipariem.</li>
+        <li>{% translate 'Parole nedrīkst būt līdzīga personīgajai informācijai.' %}</li>
+        <li>{% translate 'Parolē jābūt vismaz 8 rakstzīmēm.' %}</li>
+        <li>{% translate 'Parole nevar būt bieži izmantoja parole. Piemēram: 1234.' %}</li>
+        <li>{% translate 'Parole nevar sastāvēt tikai no cipariem.' %}</li>
       </ul>
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Parole atkārtoti</label>
+        <label for="exampleInputPassword1" class="form-label">{% translate 'Parole atkārtoti' %}</label>
         {{form.password2}}
     </div>
-    <button type="submit" class="btn btn-primary">Reģistrēties</button>
+    <button type="submit" class="btn btn-primary">{% translate 'Reģistrēties' %}</button>
 </form>
 <div class="pt-3">
-    <small><a href="{% url 'account:login_user' %}">Man jau ir konts</a></small>
+    <small><a href="/{{LANGUAGE_CODE}}{% url 'account:login_user' %}">{% translate 'Man jau ir konts' %}</a></small>
   </div>
 {% endblock %}
