@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-30 16:55+0200\n"
+"POT-Creation-Date: 2022-10-31 17:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1249,9 +1249,7 @@ msgstr "Account is almost done!"
 msgid ""
 "Lai pabeigtu konta izveidi, Jums jādodas uz aktivizēšanas saiti, kas Jums "
 "tikko tika nosūtīta uz e-pastu "
-msgstr ""
-"Go to the activation link that We "
-"just sent to your email "
+msgstr "Go to the activation link that We just sent to your email "
 
 #: .\account\views.py:88
 msgid "Neizdevās aktivizēt kontu!"
@@ -1259,7 +1257,9 @@ msgstr "Account activation failed!"
 
 #: .\account\views.py:89
 msgid "Tika veikts neveiksmīgs mēģinājums nosūtīt aktivizēšanas saiti uz "
-msgstr "There was an error in the process of sending You the activation link to email "
+msgstr ""
+"There was an error in the process of sending You the activation link to "
+"email "
 
 #: .\account\views.py:121
 msgid "Nav pieejas"
@@ -1299,7 +1299,9 @@ msgstr "There was a problem..."
 
 #: .\account\views.py:180
 msgid "Diemžēl neizdevās nosūtīt atkopšanas saiti uz e-pastu "
-msgstr "There was an error in the process of sending You the activation link to email "
+msgstr ""
+"There was an error in the process of sending You the activation link to "
+"email "
 
 #: .\account\views.py:199
 msgid "Parole atkopta!"
@@ -1353,333 +1355,329 @@ msgstr "Latvian"
 msgid "Angļu"
 msgstr "English"
 
-#: .\templates\account\activate.html:2 .\templates\account\recover_email.html:2
+#: .\templates\account\activate.html:5 .\templates\account\recover_email.html:4
 msgid "Sveiki"
 msgstr "Hello"
 
-#: .\templates\account\activate.html:4
+#: .\templates\account\activate.html:7
 msgid "Lūdzu, dodieties uz šo saiti, lai pabeigtu reģistrāciju:"
 msgstr "Please, go to this link to complete registration:"
 
-#: .\templates\account\dashboard.html:4
+#: .\templates\account\dashboard.html:6
 msgid "Konta informācija"
 msgstr "Account information"
 
-#: .\templates\account\dashboard.html:9 .\templates\account\login.html:13
-#: .\templates\account\register.html:13
+#: .\templates\account\dashboard.html:11 .\templates\account\login.html:15
+#: .\templates\account\register.html:15
 msgid "Lietotājvārds"
 msgstr "Username"
 
-#: .\templates\account\dashboard.html:13
+#: .\templates\account\dashboard.html:15
 msgid "Ē-pasts"
 msgstr "Email"
 
-#: .\templates\account\dashboard.html:17 .\templates\account\login.html:17
-#: .\templates\account\register.html:21
+#: .\templates\account\dashboard.html:19 .\templates\account\login.html:19
+#: .\templates\account\register.html:23
 msgid "Parole"
 msgstr "Password"
 
-#: .\templates\account\dashboard.html:18
+#: .\templates\account\dashboard.html:20
 msgid "Mainīt"
 msgstr "Change"
 
-#: .\templates\account\dashboard.html:25
+#: .\templates\account\dashboard.html:27
 msgid "Mācītāja panelis"
 msgstr "Pastor panel"
 
-#: .\templates\account\dashboard.html:28
+#: .\templates\account\dashboard.html:30
 msgid "Tavas istabas:"
 msgstr "Your rooms:"
 
-#: .\templates\account\dashboard.html:33 .\templates\account\headpanel.html:10
+#: .\templates\account\dashboard.html:35 .\templates\account\headpanel.html:12
 msgid "Nosaukums"
 msgstr "Title"
 
-#: .\templates\account\dashboard.html:34
+#: .\templates\account\dashboard.html:36
 msgid "Status"
 msgstr "Status"
 
-#: .\templates\account\dashboard.html:35
+#: .\templates\account\dashboard.html:37
 msgid "Darbības"
 msgstr "Actions"
 
-#: .\templates\account\dashboard.html:44
+#: .\templates\account\dashboard.html:46
 msgid "Pabeigta"
 msgstr "Complete"
 
-#: .\templates\account\dashboard.html:46
+#: .\templates\account\dashboard.html:48
 msgid "Aktīva"
 msgstr "Active"
 
-#: .\templates\account\dashboard.html:50
-#: .\templates\church\churchbrowser.html:17
-#: .\templates\church\churchsingle.html:31
-#: .\templates\church\headbrowser.html:17
+#: .\templates\account\dashboard.html:52
+#: .\templates\church\churchbrowser.html:19
+#: .\templates\church\churchsingle.html:33
+#: .\templates\church\headbrowser.html:19
 msgid "Skatīt"
 msgstr "Open"
 
-#: .\templates\account\dashboard.html:51
+#: .\templates\account\dashboard.html:53
 msgid "Dzēst"
 msgstr "Delete"
 
-#: .\templates\account\headpanel.html:4
+#: .\templates\account\headpanel.html:6
 msgid "Grēksūdzes istabas"
 msgstr "Shrift rooms"
 
-#: .\templates\account\headpanel.html:11 .\templates\account\headpanel.html:19
-#: .\templates\chat\index.html:12
+#: .\templates\account\headpanel.html:13 .\templates\account\headpanel.html:21
+#: .\templates\chat\index.html:14
 msgid "Pievienoties"
 msgstr "Join"
 
-#: .\templates\account\login.html:6
+#: .\templates\account\login.html:8
 msgid "Radās kļūda pieslēgšanās procesā."
 msgstr "There was an error in the login process."
 
-#: .\templates\account\login.html:6
+#: .\templates\account\login.html:8
 msgid ""
 "Pārliecinaties, ka pareizi ievadījāt datus, vai atkopjat paroli, izmantojot "
 "e-pastu."
 msgstr ""
-"Check if You typed the information correctly or recover password using "
-"email."
+"Check if You typed the information correctly or recover password using email."
 
-#: .\templates\account\login.html:9 .\templates\account\login.html:20
-#: .\templates\core.html:59
+#: .\templates\account\login.html:11 .\templates\account\login.html:22
+#: .\templates\core.html:61
 msgid "Pieslēgties"
 msgstr "Log in"
 
-#: .\templates\account\login.html:23
+#: .\templates\account\login.html:25
 msgid "Nav konta?"
 msgstr "Do not have a account?"
 
-#: .\templates\account\login.html:25
+#: .\templates\account\login.html:27
 msgid "Aizmirsi paroli?"
 msgstr "Forgot Your password?"
 
-#: .\templates\account\password_change.html:6
+#: .\templates\account\password_change.html:8
 msgid "Radās kļūda paroles nomaiņas procesā."
 msgstr "There was an error in password changing process."
 
-#: .\templates\account\password_change.html:6
-#: .\templates\account\recovery.html:6
+#: .\templates\account\password_change.html:8
+#: .\templates\account\recovery.html:7
 msgid "Lūdzu pārliecinaties, vai parole atbilst nosacījumiem."
 msgstr "Check if the password fits the requirements."
 
-#: .\templates\account\password_change.html:9
+#: .\templates\account\password_change.html:11
 msgid "Paroles mainīšana"
 msgstr "Change password"
 
-#: .\templates\account\password_change.html:13
-#: .\templates\account\recovery.html:13
+#: .\templates\account\password_change.html:15
+#: .\templates\account\recovery.html:14
 msgid "Jaunā parole"
 msgstr "New password"
 
-#: .\templates\account\password_change.html:17
-#: .\templates\account\recovery.html:17 .\templates\account\register.html:25
+#: .\templates\account\password_change.html:19
+#: .\templates\account\recovery.html:18 .\templates\account\register.html:27
 msgid "Parole nedrīkst būt līdzīga personīgajai informācijai."
 msgstr "Password cannot match Your personal information."
 
-#: .\templates\account\password_change.html:18
-#: .\templates\account\recovery.html:18 .\templates\account\register.html:26
+#: .\templates\account\password_change.html:20
+#: .\templates\account\recovery.html:19 .\templates\account\register.html:28
 msgid "Parolē jābūt vismaz 8 rakstzīmēm."
 msgstr "Password must be at least 8 characters long."
 
-#: .\templates\account\password_change.html:19
-#: .\templates\account\recovery.html:19 .\templates\account\register.html:27
+#: .\templates\account\password_change.html:21
+#: .\templates\account\recovery.html:20 .\templates\account\register.html:29
 msgid "Parole nevar būt bieži izmantoja parole. Piemēram: 1234."
 msgstr "Password cannot be often used or too simple. For example: 1234."
 
-#: .\templates\account\password_change.html:20
-#: .\templates\account\recovery.html:20 .\templates\account\register.html:28
+#: .\templates\account\password_change.html:22
+#: .\templates\account\recovery.html:21 .\templates\account\register.html:30
 msgid "Parole nevar sastāvēt tikai no cipariem."
 msgstr "Password cannot be only digits."
 
-#: .\templates\account\password_change.html:23
-#: .\templates\account\recovery.html:23
+#: .\templates\account\password_change.html:25
+#: .\templates\account\recovery.html:24
 msgid "Jaunā parole atkārtoti"
 msgstr "Repeat the new password"
 
-#: .\templates\account\password_change.html:26
-#: .\templates\account\recovery.html:26
+#: .\templates\account\password_change.html:28
+#: .\templates\account\recovery.html:27
 msgid "Mainīt paroli"
 msgstr "Change password"
 
-#: .\templates\account\password_recover.html:6
+#: .\templates\account\password_recover.html:8
 msgid "Radās kļūda paroles atjaunošanas procesā."
 msgstr ""
 
-#: .\templates\account\password_recover.html:6
+#: .\templates\account\password_recover.html:8
 msgid "Lūdzu pārliecinaties, vai e-pasts ievadīts pareizi."
 msgstr "Check if email is typed correctly."
 
-#: .\templates\account\password_recover.html:9
+#: .\templates\account\password_recover.html:11
 msgid "Paroles atgūšana"
 msgstr "Password recovery"
 
-#: .\templates\account\password_recover.html:13
+#: .\templates\account\password_recover.html:15
 msgid "E-pasts, uz kura reģistrēts konts."
 msgstr "Email that is associated with Your account."
 
-#: .\templates\account\password_recover.html:16
+#: .\templates\account\password_recover.html:18
 msgid "Atgūt"
 msgstr "Recover"
 
-#: .\templates\account\recover_email.html:4
+#: .\templates\account\recover_email.html:6
 msgid "Lūdzu, dodieties uz šo saiti, lai atkoptu paroli:"
 msgstr "Go to this link to recover Your password:"
 
-#: .\templates\account\recovery.html:6
+#: .\templates\account\recovery.html:7
 msgid "Radās kļūda paroles atkopšanas procesā."
 msgstr "There was an error in the password recovery process."
 
-#: .\templates\account\recovery.html:9
+#: .\templates\account\recovery.html:10
 msgid "Paroles atkopšana"
 msgstr "Password recovery"
 
-#: .\templates\account\register.html:6
+#: .\templates\account\register.html:8
 msgid "Radās kļūda reģistrācijas procesā."
 msgstr "There was an error in registration process."
 
-#: .\templates\account\register.html:6
+#: .\templates\account\register.html:8
 msgid ""
 "Lūdzu pārliecinaties, vai visa informācija ir aizpildīta un atbilst "
 "nosacījumiem."
-msgstr ""
-"Check if all information fits the requirements."
+msgstr "Check if all information fits the requirements."
 
-#: .\templates\account\register.html:9 .\templates\account\register.html:34
-#: .\templates\core.html:60
+#: .\templates\account\register.html:11 .\templates\account\register.html:36
+#: .\templates\core.html:62
 msgid "Reģistrēties"
 msgstr "Register"
 
-#: .\templates\account\register.html:17
+#: .\templates\account\register.html:19
 msgid "E-pasts"
 msgstr "Email"
 
-#: .\templates\account\register.html:31
+#: .\templates\account\register.html:33
 msgid "Parole atkārtoti"
 msgstr "Repeat password"
 
-#: .\templates\account\register.html:37
+#: .\templates\account\register.html:39
 msgid "Man jau ir konts"
 msgstr "Already have an account"
 
-#: .\templates\chat\chatroom.html:5
+#: .\templates\chat\chatroom.html:7
 msgid "Pieslēdzies kā"
 msgstr "Logged in as"
 
-#: .\templates\chat\chatroom.html:8
+#: .\templates\chat\chatroom.html:10
 msgid "Grēksūdzes istaba nr."
 msgstr "Shrift room number"
 
-#: .\templates\chat\chatroom.html:16
+#: .\templates\chat\chatroom.html:18
 msgid "Sūtīt"
 msgstr "Send"
 
-#: .\templates\chat\chatroom.html:20
+#: .\templates\chat\chatroom.html:22
 msgid "Pabeigt sarunu"
 msgstr "End conversation"
 
-#: .\templates\chat\chatroom.html:21
+#: .\templates\chat\chatroom.html:23
 msgid "Iziet nepabeidzot"
 msgstr "Exit without ending conversation"
 
-#: .\templates\chat\index.html:4 .\templates\church\info.html:18
-#: .\templates\core.html:42
+#: .\templates\chat\index.html:6 .\templates\church\info.html:19
+#: .\templates\core.html:44
 msgid "Grēksūdze"
 msgstr "Shrift"
 
-#: .\templates\chat\index.html:6
+#: .\templates\chat\index.html:8
 msgid "apraksts"
 msgstr "description"
 
-#: .\templates\chat\index.html:9
+#: .\templates\chat\index.html:11
 msgid "Tava grēksūdzes izstaba:"
 msgstr "Your shrift room:"
 
-#: .\templates\chat\index.html:14
+#: .\templates\chat\index.html:16
 msgid "Izveidot"
 msgstr "Create"
 
-#: .\templates\chat\index.html:17
+#: .\templates\chat\index.html:19
 msgid "Pieslēdzies, lai apskatītu vai izveidotu istabu!"
 msgstr "Log in to view and create a room!"
 
-#: .\templates\chat\payment.html:4
+#: .\templates\chat\payment.html:6
 msgid "Individuālā grēksūdzes istaba"
 msgstr "Individual shrift room"
 
-#: .\templates\chat\payment.html:6
+#: .\templates\chat\payment.html:8
 msgid "Nodeva baznīcai:"
 msgstr "Donation to church:"
 
-#: .\templates\church\churchbrowser.html:4 .\templates\core.html:30
+#: .\templates\church\churchbrowser.html:6 .\templates\core.html:32
 msgid "Baznīcas"
 msgstr "Churches"
 
-#: .\templates\church\churchbrowser.html:6
+#: .\templates\church\churchbrowser.html:8
 msgid "Visas baznīcas"
 msgstr "All churches"
 
-#: .\templates\church\churchsingle.html:12
-#: .\templates\church\headsingle.html:12
+#: .\templates\church\churchsingle.html:14
+#: .\templates\church\headsingle.html:14
 msgid "Apraksts"
 msgstr "Description"
 
-#: .\templates\church\churchsingle.html:19
-#: .\templates\church\headbrowser.html:4 .\templates\core.html:33
+#: .\templates\church\churchsingle.html:21
+#: .\templates\church\headbrowser.html:6 .\templates\core.html:35
 msgid "Mācītāji"
 msgstr "Pastors"
 
-#: .\templates\church\churchsingle.html:28
+#: .\templates\church\churchsingle.html:30
 msgid "360 tūre"
 msgstr "360 tour"
 
-#: .\templates\church\headbrowser.html:6
+#: .\templates\church\headbrowser.html:8
 msgid "Visi mācītāji"
 msgstr "All pastors"
 
-#: .\templates\church\headsingle.html:27
+#: .\templates\church\headsingle.html:29
 msgid "Uzdod man jautājumi"
 msgstr "Ask me a question"
 
-#: .\templates\church\headsingle.html:30
+#: .\templates\church\headsingle.html:32
 msgid "Uzsākt saraksti"
 msgstr "Start a conversation"
 
-#: .\templates\church\home.html:44
-msgid "SVEICINĀTI VIRTUĀLAJĀ BAZNĪCĀ!"
-msgstr "WELCOME TO VIRTUAL CHURCH!"
+#: .\templates\church\home.html:41
+msgid "SVEICINĀTI<br>VIRTUĀLAJĀ<br>BAZNĪCĀ!"
+msgstr "WELCOME<br>TO VIRTUAL<br>CHURCH!"
 
-#: .\templates\church\info.html:4 .\templates\core.html:39
+#: .\templates\church\info.html:5 .\templates\core.html:41
 msgid "Informācija"
 msgstr "Information"
 
-#: .\templates\church\info.html:6 .\templates\church\news.html:6
+#: .\templates\church\info.html:7 .\templates\church\news.html:7
 msgid "Šeit var apskatīt pēdējos jaunumus saistībā ar šo lapu."
 msgstr "Here You can see the latest news associated with this page."
 
-#: .\templates\church\info.html:10 .\templates\church\pricing.html:15
+#: .\templates\church\info.html:11 .\templates\church\pricing.html:16
 msgid "Konts par brīvu"
 msgstr "Account for free"
 
-#: .\templates\church\info.html:11
+#: .\templates\church\info.html:12
 msgid ""
 "Jebkuram lapas apmeklētājam ir iespēja izveidot sev kontu pilnīgi bezmaksas."
-msgstr ""
-"Everyone can create an account for free."
+msgstr "Everyone can create an account for free."
 
-#: .\templates\church\info.html:14
+#: .\templates\church\info.html:15
 msgid "Publiskā sarakste"
 msgstr "Public chat"
 
-#: .\templates\church\info.html:15
+#: .\templates\church\info.html:16
 msgid ""
 "Kopīgā sarakste, kur jebkurš lietotājs, kuram ir konts var runāt par Dievu."
-msgstr ""
-"Here every User can talk about God."
+msgstr "Here every User can talk about God."
 
-#: .\templates\church\info.html:19
+#: .\templates\church\info.html:20
 msgid ""
 "Par noteiktu nodevu baznīcai iespējams nosūdzēt savus grēkus vienam no mūsu "
 "mācītājiem, kuri labprāt uzklausīs un atbildēs."
@@ -1687,12 +1685,12 @@ msgstr ""
 "For certain donation to church You can confess Your sins to one of our "
 "pastors who will happily listen to every single word."
 
-#: .\templates\church\info.html:22 .\templates\church\pricing.html:32
-#: .\templates\church\pricing.html:97
+#: .\templates\church\info.html:23 .\templates\church\pricing.html:33
+#: .\templates\church\pricing.html:98
 msgid "Pilnīga anonimitāte"
 msgstr "Complete anonymity"
 
-#: .\templates\church\info.html:23
+#: .\templates\church\info.html:24
 #, python-format
 msgid ""
 "Vienīgais, ko redz citi lietotāji ir lietotājvārds. E-pasti un sarakstes ir "
@@ -1701,102 +1699,102 @@ msgstr ""
 "Only thing others can see is Your username. Emails and conversations ar  "
 "100% confidencial."
 
-#: .\templates\church\news.html:4 .\templates\core.html:36
+#: .\templates\church\news.html:5 .\templates\core.html:38
 msgid "Jaunumi"
 msgstr "News"
 
-#: .\templates\church\pricing.html:9 .\templates\church\pricing.html:63
+#: .\templates\church\pricing.html:10 .\templates\church\pricing.html:64
 msgid "Publiskais"
 msgstr "Public"
 
-#: .\templates\church\pricing.html:12
+#: .\templates\church\pricing.html:13
 msgid "uz mūžu"
 msgstr "for life"
 
-#: .\templates\church\pricing.html:14 .\templates\church\pricing.html:70
+#: .\templates\church\pricing.html:15 .\templates\church\pricing.html:71
 msgid "Pieeja jaunumiem"
 msgstr "Access to news"
 
-#: .\templates\church\pricing.html:16
+#: .\templates\church\pricing.html:17
 msgid "Pieeja publiskajai saraksteis"
 msgstr "Access to public chat"
 
-#: .\templates\church\pricing.html:18
+#: .\templates\church\pricing.html:19
 msgid "Reģistrējies par brīvu"
 msgstr "Registration for free"
 
-#: .\templates\church\pricing.html:25 .\templates\church\pricing.html:64
+#: .\templates\church\pricing.html:26 .\templates\church\pricing.html:65
 msgid "Individuālais"
 msgstr "Individual"
 
-#: .\templates\church\pricing.html:28
+#: .\templates\church\pricing.html:29
 msgid "par istabu"
 msgstr "for each room"
 
-#: .\templates\church\pricing.html:30
+#: .\templates\church\pricing.html:31
 msgid "Individuāla grēksūdzes istaba"
 msgstr "Individual shrift room"
 
-#: .\templates\church\pricing.html:31 .\templates\church\pricing.html:91
+#: .\templates\church\pricing.html:32 .\templates\church\pricing.html:92
 msgid "Personīga mācītāja pieeja"
 msgstr "Personal pastor attention"
 
-#: .\templates\church\pricing.html:34
+#: .\templates\church\pricing.html:35
 msgid "Izveidot istabu"
 msgstr "Create room"
 
-#: .\templates\church\pricing.html:41 .\templates\church\pricing.html:65
+#: .\templates\church\pricing.html:42 .\templates\church\pricing.html:66
 msgid "Dalībnieks"
 msgstr "Member"
 
-#: .\templates\church\pricing.html:44
+#: .\templates\church\pricing.html:45
 msgid "mēnesī"
 msgstr "month"
 
-#: .\templates\church\pricing.html:46
+#: .\templates\church\pricing.html:47
 msgid "Drīzumā"
 msgstr "Coming soon"
 
-#: .\templates\church\pricing.html:50
+#: .\templates\church\pricing.html:51
 msgid "Sazinies ar mums"
 msgstr "Reach out to us"
 
-#: .\templates\church\pricing.html:56
+#: .\templates\church\pricing.html:57
 msgid "Salīdzināt iespējas"
 msgstr "Compare possibilities"
 
-#: .\templates\church\pricing.html:76
+#: .\templates\church\pricing.html:77
 msgid "Publiskā sarakstes"
 msgstr "Public chat"
 
-#: .\templates\church\pricing.html:85
+#: .\templates\church\pricing.html:86
 msgid "Individuālā sarakste"
 msgstr "Individual chat"
 
-#: .\templates\core.html:6 .\templates\core.html:14
+#: .\templates\core.html:8 .\templates\core.html:16
 msgid "Virtuālā baznīca"
 msgstr "Virtual church"
 
-#: .\templates\core.html:17 .\templates\core.html:21
+#: .\templates\core.html:19 .\templates\core.html:23
 msgid "Navigācija"
 msgstr "Navigation"
 
-#: .\templates\core.html:27
+#: .\templates\core.html:29
 msgid "Sākums"
 msgstr "Home"
 
-#: .\templates\core.html:45
+#: .\templates\core.html:47
 msgid "Nodevas"
 msgstr "Pricing"
 
-#: .\templates\core.html:53
+#: .\templates\core.html:55
 msgid "Profils"
 msgstr "Profile"
 
-#: .\templates\core.html:54
+#: .\templates\core.html:56
 msgid "Iziet"
 msgstr "Log out"
 
-#: .\templates\core.html:65
+#: .\templates\core.html:67
 msgid "Valoda"
 msgstr "Language"
